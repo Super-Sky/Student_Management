@@ -1,0 +1,36 @@
+ginLogLevel: release  #gin框架本身日志级别
+system:
+  # 服务间互通文件地址
+  openDir: /usr/local/
+  # 脚本目录
+  scriptPath: ./script
+httpServer:
+  baseUrl: http://127.0.0.1
+  port: 9001
+  name: message
+rpcServer:
+  baseUrl: http://127.0.0.1
+  rpcPort: 9001
+log:
+  level: debug    #日志级别：debug 、info、 warn（默认）  、error
+  path: ./log
+  toFile: true
+  toScreen: true
+database:
+  dbHost: 127.0.0.1
+  dbPort: 3306
+  dbConfig: charset=utf8mb4&parseTime=True&loc=Local&max_execution_time=300000
+  dbName: student_manage
+  dbUsername: root
+  dbPassword: root
+  maxIdleConns: 0
+  maxOpenConns: 0
+  dbLogMode: true  # 是否开启gorm日志
+  logZap: ""   # gorm日志级别："silent", "Silent"  ｜  "error", "Error"  ｜ "warn", "Warn" ｜ "info", "Info" ｜ "zap", "Zap"
+redisBase:
+  redisAddr: 127.0.0.1:6379
+  redisPassword:
+  db: 5
+  redisType: redis  # redis为本机redis模式，sentinel为redis集群哨兵模式
+  masterName: mymaster
+  maxIdle: 5 # redisPool数量

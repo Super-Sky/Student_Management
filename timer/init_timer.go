@@ -1,0 +1,4 @@
+package timer
+
+func Init() {
+}

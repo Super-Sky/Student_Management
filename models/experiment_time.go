@@ -20,6 +20,8 @@ type ExperimentTime struct {
 	ARatio         int       `gorm:"column:a_ratio" json:"a_ratio"`             // 预习占比
 	BRatio         int       `gorm:"column:b_ratio" json:"b_ratio"`             // 操作占比
 	CRatio         int       `gorm:"column:c_ratio" json:"c_ratio"`             // 总结占比
+	CreatedAt      time.Time `gorm:"column:created_at" json:"created_at"`       // 创建时间
+	UpdatedAt      time.Time `gorm:"column:updated_at" json:"updated_at"`       // 更新时间
 }
 
 func (e *ExperimentTime) GetTableName() string {

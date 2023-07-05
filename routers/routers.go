@@ -23,6 +23,10 @@ func InitRouter(c common.C) *gin.Engine {
 	r.GET("/test", func(c *gin.Context) {
 		RedisAndMysqlTest(c)
 	})
+	v1 := r.Group("/v1")
+	{
+		User(v1)
+	}
 	return r
 }
 

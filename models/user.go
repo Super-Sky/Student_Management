@@ -11,25 +11,26 @@ const (
 	T_User = "user"
 )
 
+// User [...]
 type User struct {
-	Id             int64     `json:"id"   gorm:"column:id; type:int"`                        // id
-	Account        string    `json:"account"   gorm:"column:account; type:varchar(255)"`     // 账号
-	Password       string    `json:"password"   gorm:"column:password; type:varchar(255)"`   // 密码
-	Name           string    `json:"name"   gorm:"column:name; type:varchar(255)"`           // 姓名
-	Sex            string    `json:"sex"   gorm:"column:sex; type:varchar(255)"`             // 性别
-	RoleID         int64     `json:"role_id" gorm:"column:role_id;type:int"`                 // 角色id
-	OrganizationID int64     `json:"organization_id" gorm:"column:organization_id;type:int"` //组织id
-	Phone          int64     `json:"phone"   gorm:"column:phone; type:int"`                  // 电话号码
-	Telephone      int64     `json:"telephone"   gorm:"column:telephone; type:int"`          // 固话
-	Email          string    `json:"email"   gorm:"column:email; type:varchar(255)"`         // 邮箱
-	BirthDate      time.Time `json:"birth_date" gorm:"column:birth_date; type:datetime"`     // 出生日期
-	EntryDate      time.Time `json:"entry_date" gorm:"column:entry_date; type:datetime"`     // 入学日期
-	Addr           string    `json:"addr" gorm:"column:addr; type:varchar(255)"`             // 办公
-	IdCard         string    `json:"id_card" gorm:"column:id_card; type:varchar(255)"`       // 身份证
-	QQ             string    `json:"qq" gorm:"column:qq; type:varchar(255)"`
-	IconPath       string    `json:"icon_path" gorm:"column:icon_path; type:varchar(255)"` // 头像地址
-	CreatedAt      time.Time `json:"created_at"   gorm:"column:created_at; type:datetime"` // 创建时间
-	UpdatedAt      time.Time `json:"updated_at"   gorm:"column:updated_at; type:datetime"` // 更新时间
+	ID             int       `gorm:"primaryKey;column:id" json:"id"`
+	Account        string    `gorm:"column:account" json:"account"`                 // 账号
+	Password       string    `gorm:"column:password" json:"password"`               // 密码(默认密码123456)
+	Name           string    `gorm:"column:name" json:"name"`                       // 姓名
+	Sex            string    `gorm:"column:sex" json:"sex"`                         // 性别(men | women)
+	RoleID         int       `gorm:"column:role_id" json:"role_id"`                 // 角色id
+	OrganizationID int       `gorm:"column:organization_id" json:"organization_id"` // 组织id(班級id)
+	Phone          int       `gorm:"column:phone" json:"phone"`                     // 手机号
+	Telephone      int       `gorm:"column:telephone" json:"telephone"`             // 固话
+	Email          string    `gorm:"column:email" json:"email"`                     // 邮箱
+	BirthDate      time.Time `gorm:"column:birth_date" json:"birth_date"`           // 出生日期
+	EntryDate      time.Time `gorm:"column:entry_date" json:"entry_date"`           // 入职日期
+	Addr           string    `gorm:"column:addr" json:"addr"`                       // 办公地址
+	CreatedAt      time.Time `gorm:"column:created_at" json:"created_at"`           // 创建时间
+	UpdatedAt      time.Time `gorm:"column:updated_at" json:"updated_at"`           // 更新时间
+	IDCard         string    `gorm:"column:id_card" json:"id_card"`                 // 身份证号
+	QQ             int       `gorm:"column:qq" json:"qq"`                           // qq号
+	IconPath       string    `gorm:"column:icon_path" json:"icon_path"`             // 头像地址
 }
 
 func (u *User) GetTableName() string {
